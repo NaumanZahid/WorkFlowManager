@@ -1,0 +1,27 @@
+<h1>Listing states assignments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>State</th>
+      <th>Assigned To</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @states_assigns.each do |states_assign| %>
+      <tr>
+        <td><%= states_assign.state.name %></td>
+        <td><%= states_assign.assigned_to %></td>
+        <td><%= link_to 'Show', states_assign %></td>
+        <td><%= link_to 'Edit', edit_states_assign_path(states_assign) %></td>
+        <td><%= link_to 'Destroy', states_assign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Assignment', new_states_assign_path %>

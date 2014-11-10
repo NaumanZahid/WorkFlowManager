@@ -1,0 +1,27 @@
+<%= form_for(@states_assign) do |f| %>
+  <% if @states_assign.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@states_assign.errors.count, "error") %> prohibited this state from being saved:</h2>
+
+      <ul>
+      <% @states_assign.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :assigned_to %><br>
+    <%= f.text_field :assigned_to, value: 'Lead' %>
+  </div>
+
+  <div class="field">
+    <%= collection_select(:states_assign, :state_id, State.all, :id, :name, :prompt => 'Please Select a State')%>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

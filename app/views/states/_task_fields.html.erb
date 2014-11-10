@@ -1,0 +1,13 @@
+PAPPU
+<div class="nested-fields">
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :task_type%>
+    <%= f.text_field :task_type%>
+  </div>
+  <%= link_to_remove_association "remove task", f %>
+</div>
